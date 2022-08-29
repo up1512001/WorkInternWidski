@@ -1,19 +1,15 @@
-const express = require('express')
+const express =  require("express")
+const bodyParser = require('body-parser')
 
 const app = express()
 
-app.listen(5000);
+const Auth = require("./routes/nQueen")
 
-const solveNQueens = require('./controller/authUser');
+app.use("/api",Auth)
 
-const parser = require('./config/parser');
+app.use(bodyParser.json());
+const port = process.env.PORT || 5000
 
-app.post('/NQueen',parser,(req,response)=>{
-  let n = req.body.n;
-  const ans = solveNQueens(n);
-  console.log(ans);
-  if((n<4 || n>15) && n!=1) response.status(200).send('Enter Valid N Value');
-  else response.status(200).send(`${ans}`);
+app.listen(port , ()=>{
+    console.log(`listining on port ${port}`);
 })
-
-

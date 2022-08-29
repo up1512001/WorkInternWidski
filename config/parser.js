@@ -1,5 +1,5 @@
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 
-const parserExp = bodyParser.urlencoded({ extended: false })
-
-module.exports = parserExp;
+module.exports = {
+    Parser: bodyParser.urlencoded({ extended: false })
+}
