@@ -1,4 +1,4 @@
-const { all } = require("../routes/authRoute");
+
 
 var solveNQueens = function(n) {
     var res = [];
